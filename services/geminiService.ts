@@ -2,7 +2,19 @@ import { GoogleGenAI } from "@google/genai";
 import { DataFormat, TokenCounts } from "../types";
 
 // Initialize the client with the API key from the environment
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy initialization of the client
+let ai: GoogleGenAI | null = null;
+
+const getAIClient = (): GoogleGenAI => {
+  if (!ai) {
+    const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+      throw new Error("API Key is missing. Please set VITE_GEMINI_API_KEY in your environment.");
+    }
+    ai = new GoogleGenAI({ apiKey });
+  }
+  return ai;
+};
 
 const SYSTEM_INSTRUCTION = `
 You are a high-performance Data Conversion Engine. Your goal is to convert text data accurately and IMMEDIATELY between formats.
@@ -40,7 +52,7 @@ ERROR HANDLING:
 
 const getErrorMessage = (error: any): string => {
   let errorMessage = error.message || "Unknown error occurred during conversion.";
-  
+
   // Parse common API errors for better user feedback
   if (errorMessage.includes("429")) {
     errorMessage = "Rate limit exceeded. Please wait a moment and try again.";
@@ -61,8 +73,8 @@ export const convertDataStream = async (
   onChunk: (text: string) => void
 ): Promise<string> => {
   try {
-    const modelId = 'gemini-2.5-flash'; 
-    
+    const modelId = 'gemini-2.5-flash';
+
     const prompt = `
     Convert the following data from ${fromFormat} to ${toFormat}.
     
@@ -71,7 +83,8 @@ export const convertDataStream = async (
     [DATA END]
     `;
 
-    const responseStream = await ai.models.generateContentStream({
+    const aiClient = getAIClient();
+    const responseStream = await aiClient.models.generateContentStream({
       model: modelId,
       contents: prompt,
       config: {
@@ -89,9 +102,9 @@ export const convertDataStream = async (
         onChunk(text);
       }
     }
-    
+
     if (!fullText) {
-       throw new Error("No response generated.");
+      throw new Error("No response generated.");
     }
 
     return fullText;
@@ -107,8 +120,8 @@ export const convertData = async (
   toFormat: DataFormat
 ): Promise<string> => {
   try {
-    const modelId = 'gemini-2.5-flash'; 
-    
+    const modelId = 'gemini-2.5-flash';
+
     const prompt = `
     Convert the following data from ${fromFormat} to ${toFormat}.
     
@@ -117,7 +130,8 @@ export const convertData = async (
     [DATA END]
     `;
 
-    const response = await ai.models.generateContent({
+    const aiClient = getAIClient();
+    const response = await aiClient.models.generateContent({
       model: modelId,
       contents: prompt,
       config: {
@@ -128,10 +142,10 @@ export const convertData = async (
     });
 
     if (!response.text) {
-       if (response.candidates && response.candidates[0] && response.candidates[0].finishReason !== 'STOP') {
-           return `ERROR: Generation stopped due to ${response.candidates[0].finishReason}. The content might have triggered safety filters.`;
-       }
-       return "ERROR: No response generated.";
+      if (response.candidates && response.candidates[0] && response.candidates[0].finishReason !== 'STOP') {
+        return `ERROR: Generation stopped due to ${response.candidates[0].finishReason}. The content might have triggered safety filters.`;
+      }
+      return "ERROR: No response generated.";
     }
 
     return response.text;
