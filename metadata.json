@@ -1,0 +1,5 @@
+{
+  "name": "TOONConvert",
+  "description": "A magical data converter that transforms CSV and JSON into whimsical 'TOON Code' scripts and back again using Gemini AI.",
+  "requestFramePermissions": []
+}
