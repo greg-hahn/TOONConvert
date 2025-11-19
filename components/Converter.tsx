@@ -4,35 +4,35 @@ import { convertData, convertDataStream, getTokenCounts } from '../services/gemi
 import { CodeEditor } from './CodeEditor';
 
 const ArrowRightIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 );
 
 const ArrowDownIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7 7"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7 7"/></svg>
 );
 
 const SparklesIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 9h4"/><path d="M3 5h4"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M9 3v4"/><path d="M3 9h4"/><path d="M3 5h4"/></svg>
 );
 
 const LayersIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
 );
 
 const TrashIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
 );
 
 const Spinner = () => (
-  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
   </svg>
 );
 
 const FunLoader = () => (
-  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-900/80 backdrop-blur-sm rounded-xl border border-slate-700/50 transition-all duration-300">
-    <div className="relative mb-4">
+  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-slate-900/80 backdrop-blur-sm rounded-xl border border-slate-700/50 transition-all duration-300" role="status" aria-label="Loading conversion">
+    <div className="relative mb-4" aria-hidden="true">
       <div className="text-6xl animate-bounce filter drop-shadow-lg">🤖</div>
       <div className="absolute -bottom-1 -right-2 text-2xl animate-spin">⚙️</div>
     </div>
@@ -326,12 +326,14 @@ export const Converter: React.FC = () => {
           
           {/* Input Select */}
           <div className="w-full md:w-56 space-y-2">
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Convert From</label>
+            <label htmlFor="from-format-select" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Convert From</label>
             <div className="relative">
               <select
+                id="from-format-select"
                 value={fromFormat}
                 onChange={handleFromFormatChange}
                 className="w-full appearance-none bg-slate-900 border border-slate-600 text-white py-3 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                aria-label="Select source format"
               >
                 {formatOptions.map(opt => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -344,19 +346,21 @@ export const Converter: React.FC = () => {
           </div>
 
           {/* Direction Indicator */}
-          <div className="hidden md:flex items-center justify-center pt-6 text-slate-500">
+          <div className="hidden md:flex items-center justify-center pt-6 text-slate-500" aria-hidden="true">
              <ArrowRightIcon />
           </div>
 
           {/* Output Select (Only enabled for single conversion) */}
           <div className="w-full md:w-56 space-y-2 relative group">
-            <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Convert To</label>
+            <label htmlFor="to-format-select" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Convert To</label>
             <div className="relative">
               <select
+                id="to-format-select"
                 value={toFormat}
                 onChange={(e) => setToFormat(e.target.value as DataFormat)}
                 disabled={isLoading || mode === 'MULTI'}
                 className="w-full appearance-none bg-slate-900 border border-slate-600 text-white py-3 px-4 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                aria-label="Select destination format"
               >
                 {outputFormatOptions.map(opt => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -375,13 +379,14 @@ export const Converter: React.FC = () => {
               onClick={handleConvert}
               disabled={isLoading || !inputData.trim()}
               className={`
-                flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-bold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95
+                flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-bold text-white shadow-lg transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-indigo-500
                 ${isLoading || !inputData.trim() 
                   ? 'bg-slate-700 cursor-not-allowed text-slate-400' 
                   : 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:shadow-indigo-500/25'
                 }
               `}
               title="Convert to selected format"
+              aria-label="Convert to selected format"
             >
               {isLoading && mode === 'SINGLE' ? <Spinner /> : <SparklesIcon />}
               <span className="whitespace-nowrap">Convert</span>
@@ -392,13 +397,14 @@ export const Converter: React.FC = () => {
               onClick={handleConvertAll}
               disabled={isLoading || !inputData.trim()}
               className={`
-                flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-bold text-slate-200 border border-slate-600 shadow-lg transition-all transform hover:scale-105 active:scale-95
+                flex-1 md:flex-none flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-bold text-slate-200 border border-slate-600 shadow-lg transition-all transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-slate-500
                 ${isLoading || !inputData.trim() 
                   ? 'bg-slate-800 cursor-not-allowed text-slate-500' 
                   : 'bg-slate-800 hover:bg-slate-700 hover:text-white hover:border-slate-500'
                 }
               `}
               title="Convert to ALL formats at once"
+              aria-label="Convert to all formats"
             >
               {isLoading && mode === 'MULTI' ? <Spinner /> : <LayersIcon />}
               <span className="whitespace-nowrap">Convert All</span>
@@ -409,13 +415,14 @@ export const Converter: React.FC = () => {
               onClick={handleClear}
               disabled={isLoading || (!inputData && !outputData && multiOutputs.length === 0)}
               className={`
-                flex items-center justify-center px-4 py-3 rounded-lg font-bold shadow-lg transition-all transform hover:scale-105 active:scale-95 border
+                flex items-center justify-center px-4 py-3 rounded-lg font-bold shadow-lg transition-all transform hover:scale-105 active:scale-95 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-red-500
                 ${isLoading || (!inputData && !outputData && multiOutputs.length === 0)
                   ? 'bg-slate-800 text-slate-600 border-slate-700 cursor-not-allowed' 
                   : 'bg-slate-800 text-red-400 border-slate-700 hover:bg-red-500/10 hover:border-red-500/50 hover:text-red-300'
                 }
               `}
               title="Clear All Data"
+              aria-label="Clear all data"
             >
               <TrashIcon />
             </button>
@@ -455,7 +462,7 @@ export const Converter: React.FC = () => {
               />
               
               {!outputData && !outputError && !isLoading && toFormat === DataFormat.TOON && (
-                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none opacity-30">
+                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none opacity-30" aria-hidden="true">
                    <p className="text-6xl mb-4">📦</p>
                    <p className="text-sm font-mono">Waiting for structured data...</p>
                  </div>
@@ -465,18 +472,21 @@ export const Converter: React.FC = () => {
             // Multi Output View (Tabbed)
             <div className="h-full flex flex-col relative">
                {/* Tab Navigation */}
-               <div className="flex space-x-1 bg-slate-900/50 p-1 rounded-lg mb-2 overflow-x-auto shrink-0 scrollbar-hide">
+               <div className="flex space-x-1 bg-slate-900/50 p-1 rounded-lg mb-2 overflow-x-auto shrink-0 scrollbar-hide" role="tablist">
                   {[DataFormat.TOON, DataFormat.JSON, DataFormat.CSV].map((format) => (
                     <button
                       key={format}
                       onClick={() => setActiveTab(format)}
                       className={`
-                        flex-1 px-4 py-2 rounded-md text-xs font-bold transition-all whitespace-nowrap
+                        flex-1 px-4 py-2 rounded-md text-xs font-bold transition-all whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500
                         ${activeTab === format 
                           ? 'bg-indigo-600 text-white shadow-lg' 
                           : 'text-slate-400 hover:text-white hover:bg-slate-800'
                         }
                       `}
+                      role="tab"
+                      aria-selected={activeTab === format}
+                      aria-controls={`tab-panel-${format}`}
                     >
                       {format}
                     </button>
@@ -484,7 +494,7 @@ export const Converter: React.FC = () => {
                </div>
 
                {/* Tab Content */}
-               <div className="relative flex-1 min-h-0">
+               <div className="relative flex-1 min-h-0" role="tabpanel" id={`tab-panel-${activeTab}`}>
                  {isLoading ? (
                     <FunLoader />
                  ) : (

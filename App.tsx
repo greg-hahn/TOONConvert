@@ -13,44 +13,47 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-900 text-slate-100 flex flex-col">
       
       {/* Header */}
-      <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50" role="banner">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            {/* Logo Area */}
-            <div 
-              className="flex items-center space-x-3 cursor-pointer group"
+            {/* Logo Area - Now a button for accessibility */}
+            <button 
+              className="flex items-center space-x-3 cursor-pointer group focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg p-1"
               onClick={() => setCurrentView('converter')}
+              aria-label="TOONConvert Home"
             >
               <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-all">
-                <span className="text-2xl">🎭</span>
+                <span className="text-2xl" aria-hidden="true">🎭</span>
               </div>
-              <div>
+              <div className="text-left">
                 <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
                   TOONConvert
                 </h1>
                 <p className="text-[10px] text-slate-400 uppercase tracking-widest font-semibold">Data format Wizard</p>
               </div>
-            </div>
+            </button>
 
             {/* Navigation */}
-            <nav className="hidden md:flex space-x-1 bg-slate-800/50 p-1 rounded-lg border border-slate-700/30">
+            <nav className="hidden md:flex space-x-1 bg-slate-800/50 p-1 rounded-lg border border-slate-700/30" role="navigation">
               <button 
                 onClick={() => setCurrentView('converter')}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
                   currentView === 'converter' 
                     ? 'bg-slate-700 text-white shadow-sm' 
                     : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
                 }`}
+                aria-current={currentView === 'converter' ? 'page' : undefined}
               >
                 Converter
               </button>
               <button 
                 onClick={() => setCurrentView('faq')}
-                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-md text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
                   currentView === 'faq' 
                     ? 'bg-slate-700 text-white shadow-sm' 
                     : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
                 }`}
+                aria-current={currentView === 'faq' ? 'page' : undefined}
               >
                 FAQ & Guide
               </button>
@@ -58,34 +61,29 @@ const App: React.FC = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-             <div className="hidden lg:block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-xs font-mono text-slate-400">
-                Gemini 2.5 Flash Powered
-             </div>
-             <a href="#" className="text-slate-400 hover:text-white transition-colors">
-               <GithubIcon />
-             </a>
-             
-             {/* Mobile Nav Toggle (Simple version for now, just show links below if needed, but we'll keep it clean) */}
+             {/* Top right content removed as requested */}
           </div>
         </div>
       </header>
 
       {/* Mobile Nav Bar (Visible only on small screens) */}
-      <div className="md:hidden border-b border-slate-800 bg-slate-900 px-4 py-2 flex space-x-4 justify-center">
+      <nav className="md:hidden border-b border-slate-800 bg-slate-900 px-4 py-2 flex space-x-4 justify-center" role="navigation" aria-label="Mobile Navigation">
          <button 
             onClick={() => setCurrentView('converter')}
-            className={`text-sm font-medium transition-colors ${currentView === 'converter' ? 'text-indigo-400' : 'text-slate-400'}`}
+            className={`text-sm font-medium transition-colors focus:outline-none focus:underline ${currentView === 'converter' ? 'text-indigo-400' : 'text-slate-400'}`}
+            aria-current={currentView === 'converter' ? 'page' : undefined}
           >
             Converter
           </button>
-          <span className="text-slate-700">|</span>
+          <span className="text-slate-700" aria-hidden="true">|</span>
           <button 
             onClick={() => setCurrentView('faq')}
-            className={`text-sm font-medium transition-colors ${currentView === 'faq' ? 'text-indigo-400' : 'text-slate-400'}`}
+            className={`text-sm font-medium transition-colors focus:outline-none focus:underline ${currentView === 'faq' ? 'text-indigo-400' : 'text-slate-400'}`}
+            aria-current={currentView === 'faq' ? 'page' : undefined}
           >
             FAQ
           </button>
-      </div>
+      </nav>
 
       {/* Main Content */}
       <main className="flex-grow flex flex-col">

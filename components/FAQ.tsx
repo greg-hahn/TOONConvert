@@ -2,172 +2,213 @@ import React from 'react';
 
 export const FAQ: React.FC = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 lg:p-8 animate-in fade-in duration-500 pb-20">
-      <div className="mb-10 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400 mb-4">
-          Optimizing LLM Workflows
+    <div className="w-full max-w-5xl mx-auto p-6 lg:p-8 animate-in fade-in duration-500 pb-20">
+      {/* Header */}
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400 mb-6">
+          Optimizing LLM Workflows with TOON
         </h2>
-        <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          Understanding <span className="text-indigo-300 font-semibold">TOON</span> (Token-Oriented Object Notation) and how to reduce your AI API costs.
+        <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
+          Welcome to the future of <span className="text-indigo-300 font-semibold">AI data exchange</span>. 
+          Discover why TOON is the most efficient format for Large Language Models and how to reduce your API costs.
         </p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-10">
         
-        {/* Section 1: What is TOON */}
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
-          <div className="flex items-start space-x-4">
-            <div className="shrink-0 p-2 bg-indigo-500/10 rounded-lg">
-              <span className="text-2xl">🎭</span>
-            </div>
+        {/* 1. Understanding TOON */}
+        <div className="grid gap-6">
+          <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">1.</span> Understanding TOON
+          </h3>
+          
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 md:p-8 shadow-sm space-y-6">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">What is TOON?</h3>
-              <p className="text-slate-300 leading-relaxed mb-4">
-                <strong>Token-Oriented Object Notation (TOON)</strong> is a highly compact, human-readable data format designed specifically for Large Language Models (LLMs). 
-                It acts as a lossless, token-efficient encoding of the standard JSON data model.
-              </p>
-              <p className="text-slate-300 leading-relaxed">
-                It minimizes the <strong>"Token Tax"</strong>—the cost incurred by verbose JSON syntax (brackets, quotes, commas)—while maintaining the structural hints LLMs need to parse data accurately.
-              </p>
+               <h4 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                 What exactly is TOON?
+               </h4>
+               <p className="text-slate-300 leading-relaxed">
+                 <strong>Token-Oriented Object Notation (TOON)</strong> is a highly <strong>compact, human-readable data format</strong> specifically designed to optimize data exchange with <strong>Large Language Models (LLMs)</strong>. It represents a lossless, token-efficient encoding of the standard JSON data model.
+               </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+               <div>
+                 <h4 className="text-lg font-bold text-white mb-2">The "Token Tax" Problem</h4>
+                 <p className="text-slate-400 text-sm leading-relaxed">
+                   JSON is highly verbose, requiring repetitive symbols like <code>&#123;&#125;</code>, <code>[]</code>, <code>"</code>, and <code>,</code>. Since LLMs charge by the token, this verbosity creates a financial "Token Tax". TOON minimizes this overhead while maintaining structure.
+                 </p>
+               </div>
+               <div>
+                 <h4 className="text-lg font-bold text-white mb-2">Why it's efficient</h4>
+                 <ul className="space-y-2 text-slate-400 text-sm">
+                   <li className="flex gap-2">
+                     <span className="text-green-400">✓</span>
+                     <span><strong>Tabular Arrays:</strong> Collapses uniform lists into CSV-like tables with a single header.</span>
+                   </li>
+                   <li className="flex gap-2">
+                     <span className="text-green-400">✓</span>
+                     <span><strong>Minimal Syntax:</strong> Uses indentation instead of braces.</span>
+                   </li>
+                   <li className="flex gap-2">
+                     <span className="text-green-400">✓</span>
+                     <span><strong>Guardrails:</strong> Explicit hints like <code>[N]</code> help LLMs parse reliably.</span>
+                   </li>
+                 </ul>
+               </div>
             </div>
           </div>
         </div>
 
-        {/* Section 2: The Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-5 text-center">
-             <div className="text-3xl font-bold text-green-400 mb-1">30–60%</div>
-             <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Token Reduction</div>
-             <p className="text-sm text-slate-400 mt-2">vs Standard JSON</p>
-          </div>
-          <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-5 text-center">
-             <div className="text-3xl font-bold text-indigo-400 mb-1">73.9%</div>
-             <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Parsing Accuracy</div>
-             <p className="text-sm text-slate-400 mt-2">vs JSON's 69.7%</p>
-          </div>
-          <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-5 text-center">
-             <div className="text-3xl font-bold text-pink-400 mb-1">High</div>
-             <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold">Efficiency Score</div>
-             <p className="text-sm text-slate-400 mt-2">Best balance of cost & accuracy</p>
-          </div>
-        </div>
-
-        {/* Section 3: Comparison */}
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
-          <div className="flex items-start space-x-4">
-            <div className="shrink-0 p-2 bg-green-500/10 rounded-lg">
-              <span className="text-2xl">🆚</span>
+        {/* 2. Performance Metrics */}
+        <div className="grid gap-6">
+          <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">2.</span> Performance & Savings
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 text-center hover:border-indigo-500/30 transition-colors">
+              <div className="text-4xl font-bold text-green-400 mb-2">30–60%</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500 font-bold">Token Reduction</div>
+              <p className="text-sm text-slate-400 mt-3">Lower API costs immediately vs JSON.</p>
             </div>
-            <div className="w-full">
-              <h3 className="text-xl font-bold text-white mb-4">Format Showdown</h3>
-              <div className="space-y-4">
-                
-                <div className="flex flex-col md:flex-row gap-4 border-b border-slate-700/50 pb-4">
-                  <div className="w-24 font-mono font-bold text-yellow-400">JSON</div>
-                  <div className="flex-1">
-                    <p className="text-slate-300 text-sm font-semibold">The Universal Standard</p>
-                    <p className="text-slate-400 text-sm">Great for APIs, but verbose. Heavy bracket usage inflates token costs significantly.</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 border-b border-slate-700/50 pb-4">
-                  <div className="w-24 font-mono font-bold text-blue-400">YAML</div>
-                  <div className="flex-1">
-                    <p className="text-slate-300 text-sm font-semibold">The Readable Alternative</p>
-                    <p className="text-slate-400 text-sm">Readable, but token-expensive for arrays because it repeats keys for every item.</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 border-b border-slate-700/50 pb-4">
-                  <div className="w-24 font-mono font-bold text-green-400">CSV</div>
-                  <div className="flex-1">
-                    <p className="text-slate-300 text-sm font-semibold">The Compact Choice</p>
-                    <p className="text-slate-400 text-sm">Extremely efficient, but cannot handle nested data and lacks explicit type safety.</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="w-24 font-mono font-bold text-pink-400">TOON</div>
-                  <div className="flex-1">
-                    <p className="text-slate-300 text-sm font-semibold">The AI Optimized Format</p>
-                    <p className="text-slate-400 text-sm">
-                      Combines the hierarchy of JSON with the tabular efficiency of CSV. 
-                      It uses headers (<code className="text-xs bg-slate-900 px-1 py-0.5 rounded">key[n]&#123;fields&#125;:</code>) to declare keys once, then lists data compactly.
-                    </p>
-                  </div>
-                </div>
-
-              </div>
+            <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 text-center hover:border-indigo-500/30 transition-colors">
+              <div className="text-4xl font-bold text-indigo-400 mb-2">73.9%</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500 font-bold">Parsing Accuracy</div>
+              <p className="text-sm text-slate-400 mt-3">vs JSON's 69.7%. Fewer hallucinations.</p>
+            </div>
+            <div className="bg-slate-900/80 border border-slate-700/50 rounded-xl p-6 text-center hover:border-indigo-500/30 transition-colors">
+              <div className="text-4xl font-bold text-pink-400 mb-2">26.9</div>
+              <div className="text-xs uppercase tracking-wider text-slate-500 font-bold">Efficiency Score</div>
+              <p className="text-sm text-slate-400 mt-3">vs JSON's 15.3. The optimal balance.</p>
             </div>
           </div>
         </div>
 
-        {/* Section 4: Strategy */}
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
-           <div className="flex items-start space-x-4">
-            <div className="shrink-0 p-2 bg-purple-500/10 rounded-lg">
-              <span className="text-2xl">🧠</span>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">The Hybrid Strategy</h3>
-              <p className="text-slate-300 text-sm mb-4">
-                TOON isn't meant to replace JSON in your database or REST APIs. It is a specialized translation layer for AI.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                 <div className="bg-slate-900 p-4 rounded-lg border-l-4 border-yellow-500">
-                    <h4 className="font-bold text-yellow-400 text-sm uppercase tracking-wide mb-1">Use JSON For</h4>
-                    <ul className="list-disc list-inside text-slate-400 text-xs space-y-1">
-                       <li>Traditional REST APIs</li>
-                       <li>Deeply nested configuration files</li>
-                       <li>Legacy storage pipelines</li>
-                    </ul>
+        {/* 3. Comparison */}
+        <div className="grid gap-6">
+          <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">3.</span> Format Comparison
+          </h3>
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 md:p-8 shadow-sm">
+            <div className="space-y-6">
+               <div className="flex flex-col md:flex-row gap-6 pb-6 border-b border-slate-700/50">
+                 <div className="md:w-1/4">
+                   <span className="font-mono font-bold text-blue-400 text-lg">vs YAML</span>
                  </div>
-                 <div className="bg-slate-900 p-4 rounded-lg border-l-4 border-pink-500">
-                    <h4 className="font-bold text-pink-400 text-sm uppercase tracking-wide mb-1">Use TOON For</h4>
-                    <ul className="list-disc list-inside text-slate-400 text-xs space-y-1">
-                       <li>Sending large context to LLMs (RAG)</li>
-                       <li>High-volume AI data processing</li>
-                       <li>Tabular data (like SQL results)</li>
-                    </ul>
+                 <div className="md:w-3/4">
+                   <p className="text-slate-300">
+                     While readable, <strong>YAML is token-expensive</strong> for arrays of objects because it repeats keys for every single item. TOON's tabular feature dramatically outperforms YAML for list-heavy data.
+                   </p>
                  </div>
-              </div>
-            </div>
-           </div>
-        </div>
-
-        {/* Section 5: Tool Mechanics (Unwinding) */}
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
-          <div className="flex items-start space-x-4">
-            <div className="shrink-0 p-2 bg-blue-500/10 rounded-lg">
-              <span className="text-2xl">🔄</span>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">How does the Converter's "Unwinding" work?</h3>
-              <p className="text-slate-300 leading-relaxed mb-3">
-                 If you convert nested JSON to CSV using this tool, we perform <strong>Recursive Unwinding</strong>.
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Since CSV is flat, we cannot represent a list inside an object directly. Instead, we "unwind" the array: if an object has a list of 3 items, we create 3 CSV rows, duplicating the parent data for each row. This ensures no data is lost, even if it becomes denormalized.
-              </p>
+               </div>
+               
+               <div className="flex flex-col md:flex-row gap-6">
+                 <div className="md:w-1/4">
+                   <span className="font-mono font-bold text-green-400 text-lg">vs CSV</span>
+                 </div>
+                 <div className="md:w-3/4">
+                   <p className="text-slate-300">
+                     CSV is efficient but cannot represent <strong>nested structures</strong> and lacks explicit metadata. TOON adds minimal overhead (5-10%) to provide the structural context and nesting LLMs need.
+                   </p>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
 
-        {/* Section 6: Token Estimation */}
-        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
-          <div className="flex items-start space-x-4">
-            <div className="shrink-0 p-2 bg-orange-500/10 rounded-lg">
-              <span className="text-2xl">⚡</span>
+        {/* 4. Usage Strategy */}
+        <div className="grid gap-6">
+          <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">4.</span> Usage Guide
+          </h3>
+          <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden">
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-700">
+               <div className="p-6 bg-gradient-to-br from-indigo-900/20 to-transparent">
+                 <h4 className="font-bold text-indigo-300 mb-4 flex items-center gap-2">
+                   <span>🚀</span> Use TOON For
+                 </h4>
+                 <ul className="space-y-3 text-sm text-slate-300">
+                   <li className="flex items-start gap-2">
+                     <span className="text-indigo-500 mt-0.5">•</span>
+                     <span><strong>LLM I/O:</strong> Sending context to LLMs (RAG).</span>
+                   </li>
+                   <li className="flex items-start gap-2">
+                     <span className="text-indigo-500 mt-0.5">•</span>
+                     <span><strong>High Tabular Data:</strong> Database results with uniform rows.</span>
+                   </li>
+                   <li className="flex items-start gap-2">
+                     <span className="text-indigo-500 mt-0.5">•</span>
+                     <span><strong>Cost-Sensitive Apps:</strong> High volume API calls.</span>
+                   </li>
+                 </ul>
+               </div>
+
+               <div className="p-6 bg-gradient-to-br from-slate-900/20 to-transparent">
+                 <h4 className="font-bold text-slate-400 mb-4 flex items-center gap-2">
+                   <span>💾</span> Stick with JSON For
+                 </h4>
+                 <ul className="space-y-3 text-sm text-slate-400">
+                   <li className="flex items-start gap-2">
+                     <span className="text-slate-600 mt-0.5">•</span>
+                     <span><strong>Traditional APIs:</strong> REST APIs & web services.</span>
+                   </li>
+                   <li className="flex items-start gap-2">
+                     <span className="text-slate-600 mt-0.5">•</span>
+                     <span><strong>Deep Nesting:</strong> Complex configs without lists.</span>
+                   </li>
+                   <li className="flex items-start gap-2">
+                     <span className="text-slate-600 mt-0.5">•</span>
+                     <span><strong>Legacy Pipelines:</strong> Existing storage tooling.</span>
+                   </li>
+                 </ul>
+               </div>
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">About the Token Estimates</h3>
-              <p className="text-slate-300 leading-relaxed text-sm">
-                To provide instant feedback and keep the app responsive, the token counts shown in the editor are <strong>estimates</strong> calculated locally (using a standard ~4 chars/token heuristic).
-              </p>
-              <p className="text-slate-400 text-sm mt-2">
-                While exact counts vary by model tokenizer, these estimates are sufficient for calculating your potential ROI and ensuring you stay within context windows.
-              </p>
+            <div className="bg-indigo-500/10 p-4 text-center border-t border-slate-700/50">
+               <p className="text-indigo-200 text-sm font-medium">
+                 💡 <span className="font-bold">Pro Tip:</span> Use a hybrid strategy. Store in JSON, convert to TOON for LLM calls.
+               </p>
             </div>
+          </div>
+        </div>
+
+        {/* 5. Tool Functionality (Existing + New) */}
+        <div className="grid gap-6">
+          <h3 className="text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-indigo-400">5.</span> About This Converter
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
+               <div className="mb-4 p-2 bg-pink-500/10 w-fit rounded-lg">
+                 <span className="text-xl">⚡</span>
+               </div>
+               <h4 className="font-bold text-white mb-2">Why use this tool?</h4>
+               <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                 Designed for "vibe coders" and developers alike, this tool offers an integrated workflow to instantly visualize token savings.
+               </p>
+               <ul className="text-sm text-slate-400 space-y-2">
+                  <li>• <strong>JSON ↔ TOON ↔ CSV</strong> pipeline.</li>
+                  <li>• Real-time token estimation.</li>
+                  <li>• Visual validation of structure.</li>
+               </ul>
+             </div>
+
+             <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 shadow-sm">
+               <div className="mb-4 p-2 bg-blue-500/10 w-fit rounded-lg">
+                 <span className="text-xl">🔄</span>
+               </div>
+               <h4 className="font-bold text-white mb-2">How CSV Unwinding Works</h4>
+               <p className="text-slate-400 text-sm leading-relaxed">
+                 When converting nested JSON/TOON to CSV, we perform <strong>Recursive Unwinding</strong>. If an object contains a list, we expand it into multiple rows, duplicating the parent data for each item. This ensures complex hierarchical data can be flattened without loss.
+               </p>
+             </div>
+          </div>
+          
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-4 flex items-start gap-3">
+            <span className="text-xl">ℹ️</span>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              <strong>Note on Token Counts:</strong> The token counters in this app use a local heuristic (~4 characters per token) for instant feedback. While actual tokenizer counts vary by model (Gemini vs GPT vs Claude), these estimates are sufficient for calculating ROI.
+            </p>
           </div>
         </div>
 
