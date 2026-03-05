@@ -2,6 +2,8 @@
 
 **TOONConvert** is a high-performance, AI-powered data conversion engine designed to optimize data exchange for Large Language Models (LLMs). It specializes in converting standard formats like **JSON** and **CSV** into **TOON (Token-Oriented Object Notation)**—a compact, token-efficient format that can reduce LLM API costs by 30-60%.
 
+![TOONConvert Preview](https://picsum.photos/seed/toonconvert/1200/600)
+
 ## 🚀 Features
 
 - **Multi-Format Conversion**: Seamlessly transform data between JSON, CSV, and TOON Code.

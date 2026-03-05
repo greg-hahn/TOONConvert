@@ -430,6 +430,15 @@ export const Converter: React.FC = () => {
         </div>
       </div>
 
+      {/* Privacy Warning */}
+      <div className="mb-6 bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex items-center gap-3">
+        <span className="text-xl" aria-hidden="true">⚠️</span>
+        <div className="text-xs text-amber-200 leading-relaxed">
+          <p className="font-bold mb-1">Privacy Notice</p>
+          <p>Your data is processed by an external AI service (Google Gemini). Please do not paste sensitive information, passwords, or private PII. Data is transmitted securely but is subject to third-party processing.</p>
+        </div>
+      </div>
+
       {/* Editors Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[650px]">
         {/* Left Column: Input */}

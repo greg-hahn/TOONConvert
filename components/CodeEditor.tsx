@@ -1,4 +1,5 @@
 import React, { useState, useRef, useMemo } from 'react';
+import DOMPurify from 'dompurify';
 import { TokenCounts } from '../types';
 
 interface CodeEditorProps {
@@ -168,7 +169,13 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
     }
   };
 
-  const highlightedCode = useMemo(() => highlightSyntax(value, language), [value, language]);
+  const highlightedCode = useMemo(() => {
+    const rawHtml = highlightSyntax(value, language);
+    return DOMPurify.sanitize(rawHtml + '<br/>', {
+      ALLOWED_TAGS: ['span', 'br'],
+      ALLOWED_ATTR: ['class', 'title']
+    });
+  }, [value, language]);
 
   const containerClass = `flex flex-col h-full bg-slate-800 rounded-xl border overflow-hidden shadow-lg transition-all duration-300 ${
     error 
@@ -248,7 +255,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           ref={preRef}
           className="absolute inset-0 w-full h-full p-4 font-mono text-sm pointer-events-none whitespace-pre-wrap break-words overflow-auto transparent-scrollbar text-slate-300"
           aria-hidden="true"
-          dangerouslySetInnerHTML={{ __html: highlightedCode + '<br/>' }}
+          dangerouslySetInnerHTML={{ __html: highlightedCode }}
           style={{ fontFamily: "'Fira Code', monospace" }}
         />
 
